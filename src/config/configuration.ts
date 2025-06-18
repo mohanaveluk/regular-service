@@ -1,11 +1,17 @@
 import { registerAs } from '@nestjs/config';
+import { DatabaseConfig } from './types/database.config';
 
-export const databaseConfig = registerAs('database', () => ({
+export const getDatabaseConfig = registerAs('database', (): DatabaseConfig => ({
   host: process.env.DB_HOST,
   port: parseInt(process.env.DB_PORT, 10),
   username: process.env.DB_USERNAME,
   password: process.env.DB_PASSWORD,
   database: process.env.DB_DATABASE,
+  synchronize: process.env.NODE_ENV === 'development',
+  logging: process.env.NODE_ENV === 'development',
+  migrationsRun: process.env.DB_MIGRATIONS_RUN === 'true',
+  migrations: [__dirname + '/../migrations/*{.ts,.js}'],
+  autoLoadEntities: true,
 }));
 
 export const jwtConfig = registerAs('jwt', () => ({
