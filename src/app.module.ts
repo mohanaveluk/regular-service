@@ -18,7 +18,9 @@ import ormConfig from './database/ormconfig';
     //   inject: [ConfigService],
     //   useFactory: (configService: ConfigService) => (getDatabaseConfig(configService)),
     // }),
-    TypeOrmModule.forRoot(ormConfig)
+    TypeOrmModule.forRootAsync({
+      useFactory: (configService: ConfigService) => (ormConfig)
+    })
   ],
   controllers: [AppController],
   providers: [AppService],

@@ -13,7 +13,7 @@ const ormConfig : MysqlConnectionOptions = {
     synchronize: false,
     logging: false,
     logger: 'simple-console',
-    migrationsRun: true,
+    migrationsRun: false,
     migrations: [__dirname + '/migrations/**/*.{ts,js}'],
   };
   
