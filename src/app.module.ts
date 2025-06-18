@@ -4,6 +4,7 @@ import { AppService } from './app.service';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { adminConfig, databaseConfig, googleCloudConfig, jwtConfig, smtpConfig } from './config/configuration';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import ormConfig from './database/ormconfig';
 
 
 @Module({
@@ -17,6 +18,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
     //   inject: [ConfigService],
     //   useFactory: (configService: ConfigService) => (getDatabaseConfig(configService)),
     // }),
+    TypeOrmModule.forRoot(ormConfig)
   ],
   controllers: [AppController],
   providers: [AppService],
