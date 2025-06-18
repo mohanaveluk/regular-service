@@ -29,7 +29,7 @@ COPY --from=builder /app/src ./src
 COPY --from=builder /app/package*.json ./
 
 # Copy database migrations
-COPY --from=builder /app/src/database/migrations ./dist/database/migrations
+##COPY --from=builder /app/src/database/migrations ./dist/database/migrations
 
 # Install only production dependencies
 RUN npm install --only=production
