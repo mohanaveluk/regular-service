@@ -7,4 +7,4 @@ import { AppService } from './app.service';
   controllers: [AppController],
   providers: [AppService],
 })
-export ing config filesclass AppModule {}
+export class AppModule {}
