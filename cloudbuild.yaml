@@ -25,4 +25,4 @@ steps:
       - 'DB_HOST=${_DB_HOST},DB_PORT=${_DB_PORT},DB_USERNAME=${_DB_USERNAME},DB_PASSWORD=${_DB_PASSWORD},DB_DATABASE=${_DB_DATABASE}'
 
 images:
-  - 'gcr.io/$PROJECT_ID/colregular-service'
+  - 'gcr.io/$PROJECT_ID/regular-service'
