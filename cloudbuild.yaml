@@ -26,6 +26,5 @@ steps:
 
 images:
   - 'gcr.io/$PROJECT_ID/regular-service'
-  
-logsBucket: 'gs://cloudapplogs'
-timeout: '1200s'  # Optional: Set a timeout for the build process
+options:
+  logging: CLOUD_LOGGING_ONLY
