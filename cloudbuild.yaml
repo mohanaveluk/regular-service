@@ -26,5 +26,6 @@ steps:
 
 images:
   - 'gcr.io/$PROJECT_ID/regular-service'
+  
 options:
   logging: CLOUD_LOGGING_ONLY
