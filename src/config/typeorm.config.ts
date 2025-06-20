@@ -6,7 +6,7 @@ export const typeOrmConfig = (
   configService: ConfigService,
 ): TypeOrmModuleOptions => {
   const dbConfig = configService.get<DatabaseConfig>('database');
-  
+  console.log('Database configuration:', dbConfig);
     
   if (!dbConfig) {
     throw new Error('Database configuration not found');
