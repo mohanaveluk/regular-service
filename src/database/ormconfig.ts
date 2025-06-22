@@ -15,7 +15,7 @@ const ormConfig : MysqlConnectionOptions = {
     logging: false,
     logger: 'simple-console',
     migrationsRun: false,
-    migrations: [join(__dirname, '..', 'database', 'migrations', '*{.ts,.js}')],
+    migrations: [__dirname + '../database/migrations/**/*.{ts,js}'],
 
   };
   
