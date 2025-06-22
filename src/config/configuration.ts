@@ -1,4 +1,5 @@
 import { registerAs } from '@nestjs/config';
+import { join } from 'path';
 import { DatabaseConfig } from './types/database.config';
 
 export const getDatabaseConfig = registerAs('database', (): DatabaseConfig => ({
@@ -10,7 +11,7 @@ export const getDatabaseConfig = registerAs('database', (): DatabaseConfig => ({
   synchronize: process.env.NODE_ENV === 'development',
   logging: process.env.NODE_ENV === 'development',
   migrationsRun: process.env.DB_MIGRATIONS_RUN === 'true',
-  migrations: [__dirname + '/../migrations/*{.ts,.js}'],
+  migrations: [join(__dirname, '..', 'database', 'migrations', '*{.ts,.js}')],
   autoLoadEntities: true,
 }));
 
