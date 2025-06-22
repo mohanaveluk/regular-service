@@ -1,5 +1,6 @@
 import { TypeOrmModuleOptions  } from '@nestjs/typeorm';
 import { MysqlConnectionOptions } from 'typeorm/driver/mysql/MysqlConnectionOptions';
+import { join } from 'path';
 require('dotenv').config();
 
 const ormConfig : MysqlConnectionOptions = {
@@ -14,7 +15,8 @@ const ormConfig : MysqlConnectionOptions = {
     logging: false,
     logger: 'simple-console',
     migrationsRun: false,
-    migrations: [__dirname + '/migrations/**/*.{ts,js}'],
+    migrations: [join(__dirname, '..', 'database', 'migrations', '*{.ts,.js}')],
+
   };
   
   console.log(JSON.stringify(ormConfig));
