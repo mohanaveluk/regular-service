@@ -13,7 +13,7 @@ export const getDatabaseConfig = registerAs('database', (): DatabaseConfig => ({
   migrationsRun: process.env.DB_MIGRATIONS_RUN === 'true',
   migrations: [join(__dirname, '..', 'database', 'migrations', '*{.ts,.js}')],
   autoLoadEntities: true,
-  migrationsTableName: "migrations",
+
   
 }));
 

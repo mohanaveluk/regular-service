@@ -9,5 +9,5 @@ export interface DatabaseConfig {
   migrationsRun: boolean;
   migrations: string[];
   autoLoadEntities: boolean;
-  migrationsTableName: string;
+  migrationsTableName?: string;
 }

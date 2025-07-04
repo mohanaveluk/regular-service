@@ -11,9 +11,10 @@ const ormConfig : MysqlConnectionOptions = {
     password: process.env.DB_PASSWORD || 'kalavai@071972',
     database: process.env.DB_DATABASE || 'collegedb',
     entities: [__dirname + '/**/*.entity{.ts,.js}'],
-    synchronize: false,
-    logging: false,
-    logger: 'simple-console',
+    synchronize: process.env.NODE_ENV === 'production' ? false : true, // never use synchronize in production
+    // logging: true, // enable logging for debugging    
+    logging: true, // enable logging for debugging
+    logger: 'advanced-console',
     migrationsRun: false,
     migrations: [__dirname + '/database/migrations/**/*.{ts,js}'],
 
