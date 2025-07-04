@@ -6,6 +6,7 @@ export interface DatabaseConfig {
   database: string;
   synchronize: boolean;
   logging: boolean;
+  logger: string;
   migrationsRun: boolean;
   migrations: string[];
   autoLoadEntities: boolean;
