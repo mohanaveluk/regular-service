@@ -22,6 +22,7 @@ export const typeOrmConfig = (
     entities: [__dirname + '/../**/*.entity{.ts,.js}'],
     synchronize: dbConfig.synchronize,
     logging: dbConfig.logging,
+    logger: dbConfig.logger as 'debug' | 'advanced-console' | 'simple-console' | 'formatted-console' | 'file' | undefined,
     migrationsRun: dbConfig.migrationsRun,
     migrations: dbConfig.migrations,
     autoLoadEntities: dbConfig.autoLoadEntities,
