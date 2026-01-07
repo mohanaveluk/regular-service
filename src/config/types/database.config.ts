@@ -7,8 +7,8 @@ export interface DatabaseConfig {
   synchronize: boolean;
   logging: boolean;
   logger: string;
-  migrationsRun: boolean;
-  migrations: string[];
+  migrationsRun?: boolean;
+  migrations?: string[];
   autoLoadEntities: boolean;
   migrationsTableName?: string;
 }

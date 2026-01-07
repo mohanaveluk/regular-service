@@ -3,6 +3,8 @@ import { AppModule } from './app.module';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import { ValidationPipe } from '@nestjs/common';
 import * as http from 'http';
+import { AllExceptionsFilter } from './common/filters/all-exceptions.filter';
+import { LoggingInterceptor } from './common/interceptors/logging.interceptor';
 require('dotenv').config();
 
 
@@ -11,6 +13,10 @@ async function bootstrap() {
   const server = app.getHttpServer() as http.Server;
   // Set global prefix for all routes
   app.setGlobalPrefix('api/v1');
+
+  app.useGlobalPipes(new ValidationPipe({ transform: true }));
+  app.useGlobalFilters(new AllExceptionsFilter());
+  app.useGlobalInterceptors(new LoggingInterceptor());
 
   // Configure CORS
   app.enableCors({
@@ -21,7 +27,7 @@ async function bootstrap() {
     exposedHeaders: ['Content-Range', 'X-Content-Range'],
   });
 
-  app.useGlobalPipes(new ValidationPipe({ transform: true }));
+
   //app.useGlobalGuards(new JwtAuthGuard(app.get(JwtService), app.get(Reflector)));
   //app.useGlobalGuards(new JwtAuthGuard(app.get(Reflector)));
 

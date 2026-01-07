@@ -10,10 +10,9 @@ import { Request, Response } from 'express';
 
 @Catch()
 export class AllExceptionsFilter implements ExceptionFilter {
-  constructor(private readonly httpAdapterHost: HttpAdapterHost) {}
+  constructor() {}
 
   catch(exception: unknown, host: ArgumentsHost): void {
-    const { httpAdapter } = this.httpAdapterHost;
     const ctx = host.switchToHttp();
     const request = ctx.getRequest<Request>();
     const response = ctx.getResponse<Response>();
@@ -25,7 +24,7 @@ export class AllExceptionsFilter implements ExceptionFilter {
 
     const message = exception instanceof HttpException
       ? exception.getResponse()
-      : exception;
+      : 'Internal server error';
 
       const logMessage = {
         method: request.method,

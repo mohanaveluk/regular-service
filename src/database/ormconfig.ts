@@ -14,7 +14,7 @@ const ormConfig : MysqlConnectionOptions = {
     // logging: true, // enable logging for debugging    
     logger: 'advanced-console',
     migrationsRun: false,
-    migrations: [__dirname + '/database/migrations/**/*.{ts,js}'],
+    //migrations: [__dirname + '/database/migrations/**/*.{ts,js}'],
 
   };
   

@@ -11,9 +11,9 @@ export const getDatabaseConfig = registerAs('database', (): DatabaseConfig => ({
   synchronize: process.env.NODE_ENV === 'development',
   logging: process.env.NODE_ENV === 'development',
   logger: 'advanced-console',
-  migrationsRun: process.env.DB_MIGRATIONS_RUN === 'true',
-  migrations: [join(__dirname, '..', 'database', 'migrations', '*{.ts,.js}')],
-  autoLoadEntities: true,
+  //migrationsRun: process.env.DB_MIGRATIONS_RUN === 'true',
+  //migrations: [join(__dirname, '..', 'database', 'migrations', '*{.ts,.js}')],
+  autoLoadEntities: false,
 
   
 }));
